@@ -6,11 +6,11 @@ The event handler for Delete button click events.
 
 pl.v.deleteBook = {
   setupUserInterface: function () {
-    let formEl = document.forms["Book"],
+    var formEl = document.forms["Book"],
       deleteButton = formEl.commit,
       selectEl = formEl.selectBook;
 
-    let key = "",
+    var key = "",
       keys = [],
       i = 0,
       book = null,
@@ -40,8 +40,8 @@ pl.v.deleteBook = {
   },
 
   handleDeleteButtonClickEvent: function () {
-    let selectEl = document.forms["Book"].selectBook;
-    let isbn = selectEl.value;
+    var selectEl = document.forms["Book"].selectBook;
+    var isbn = selectEl.value;
     if (isbn) {
       Book.destroy(isbn);
       // remove deleted book from select options

@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minimal App</title>
-    <link rel="stylesheet" href="css/normalize.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
     <header>
       <div class="wrapper clearfix">
        <div class="title">
-        <h1>Retrieve and List All Book Records</h1>
+        <h1>Update a book record</h1>
        </div>
        <nav>
         <ul>
@@ -26,31 +26,29 @@
      </header>
      <main>
       <div class="wrapper clearfix">
-       <table id="books">
-        <thead>
-          <tr>
-            <th>ISBN</th>
-            <th>Title</th>
-            <th>Year</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-       </table>
+       <form id="Book">
+        <div>
+          <label>Select book: 
+            <select name="selectBook"><option value=""> --- </option></select>
+          </label>
+        </div>
+        <div><label>ISBN: <output name="isbn" /></label></div>
+        <div><label>Title: <input name="title" type="text" /></label></div>
+        <div><label>Year: <input name="year" type="text" /></label></div>
+        <div><button type="button" name="commit">Save Changes</button></div>
+       </form>
       </div>
      </main>
      <footer>
-      <div class="foot-content wrapper">
-       <a href="index.html">Back to main menu</a>
-      </div>
+       <div class="foot-content wrapper">
+         <a href="index.html">Back to main menu</a>
+       </div>
      </footer>
     <script src="src/c/initialize.js"></script>
     <script src="src/m/Book.js"></script>
-    <script src="src/v/retrieveAndListAllBooks.js"></script>
+    <script src="src/v/updateBook.js"></script>
     <script>
-      window.addEventListener(
-        "load",
-        pl.v.retrieveAndListAllBooks.setupUserInterface
-      );
+      window.addEventListener("load", pl.v.updateBook.setupUserInterface);
     </script>
   </body>
 </html>

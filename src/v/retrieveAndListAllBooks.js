@@ -5,7 +5,8 @@ pl.v.retrieveAndListAllBooks = {
     let tableBodyE1 = document.querySelector("table#books > tbody");
     let keys = [],
       key = "",
-      row = {};
+      row = {},
+      i = 0;
     // load all book objects
     Book.retrieveAll();
     keys = Object.keys(Book.instances);
@@ -19,8 +20,8 @@ pl.v.retrieveAndListAllBooks = {
         Both insertRow and insertCell have to be invoked with the argument -1 for 
         making sure that new elements are appended to the list of rows and cells. 
         */
-    for (let values of keys) {
-      key = values;
+    for (i=0; i < keys.length; i++) {
+      key = keys[i];
       row = tableBodyE1.insertRow();
       row.insertCell(-1).textContent = Book.instances[key].isbn;
       row.insertCell(-1).textContent = Book.instances[key].title;

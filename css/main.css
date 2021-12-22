@@ -131,7 +131,8 @@ footer div.foot-content {
    Author's custom styles
    ========================================================================== */
 footer div.foot-content {
-    font-size: smaller;
+    font-size: normal;
+    font-weight: bold;
     /' margin: 2em auto; */
 }
 footer div.foot-content a {
