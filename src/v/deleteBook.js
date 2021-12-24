@@ -5,47 +5,26 @@ The event handler for Delete button click events.
  */
 
 pl.v.deleteBook = {
+  /**
+   * Initialize the deleteBook form
+   */
   setupUserInterface: function () {
-    var formEl = document.forms["Book"],
-      deleteButton = formEl.commit,
-      selectEl = formEl.selectBook;
-
-    var key = "",
-      keys = [],
-      i = 0,
-      book = null,
-      optionEl = null;
-
-    Book.retrieveAll();
-
-    // populate the selection of the book to delele form the list of books
-    keys = Object.keys(Book.instances);
-    for (i = 0; i < keys.length; i++) {
-      key = keys[i];
-      book = Book.instances[key];
-      optionEl = document.createElement("option");
-      optionEl.text = book.title;
-      optionEl.value = book.isbn;
-      selectEl.add(optionEl, null);
-    }
-
-    // Set an event handler for delete button\
-    deleteButton.addEventListener(
-      "click",
-      pl.v.deleteBook.handleDeleteButtonClickEvent
-    );
-
-    //  handle the event when the browser window/tab is closed
+    var formEl = document.forms['Book'],
+        deleteButton = formEl.commit,
+        selectBookEl = formEl.selectBook;
+    // set up the book selection list
+    util.fillSelectWithOptions( selectBookEl, Book.instances, 
+        {keyProp:"isbn", displayProp:"title"});
+    // Set an event handler for the submit/delete button
+    deleteButton.addEventListener("click", function () {
+        var isbn = selectBookEl.value;
+        if (isbn) {
+          Book.destroy( isbn);
+          // remove deleted book from select options
+          selectBookEl.remove( selectBookEl.selectedIndex);
+        }
+    });
+    // Set a handler for the event when the browser window/tab is closed
     window.addEventListener("beforeunload", Book.saveAll);
-  },
-
-  handleDeleteButtonClickEvent: function () {
-    var selectEl = document.forms["Book"].selectBook;
-    var isbn = selectEl.value;
-    if (isbn) {
-      Book.destroy(isbn);
-      // remove deleted book from select options
-      selectEl.remove(selectEl.selectedIndex);
-    }
-  },
+  }
 };

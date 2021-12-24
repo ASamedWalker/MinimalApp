@@ -42,8 +42,8 @@
                     <li><a href="deleteBook.html"><button type="button">Delete</button></a> a book record</li>
                 </menu>
                 <menu>
-                    <li><button type="button" onclick="Book.clearData()">Clear</button> database</li>
-                    <li><button type="button" onclick="Book.generateTestData()">Generate</button> test data</li>
+                    <li><button type="button" onclick="Book.clearData()">Clear</button> Database</li>
+                    <li><button type="button" onclick="Book.createTestData()">Generate</button> Test data</li>
                 </menu>
             </div>
     </main>
@@ -52,6 +52,10 @@
         Copyright © 2021 Samed Walker
       </div>
     </footer>
+    <script src="lib/browserShims.js"></script>
+    <script src="lib/util.js"></script>
+    <script src="lib/errorTypes.js"></script>
+    <script src="lib/Enumeration.js"></script>
     <script src="src/c/initialize.js"></script>
     <script src="src/m/Book.js"></script>
 </body>

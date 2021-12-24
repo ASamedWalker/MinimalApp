@@ -43,13 +43,18 @@
        <a href="index.html">Back to main menu</a>
       </div>
      </footer>
+    <script src="lib/browserShims.js"></script>
+    <script src="lib/util.js"></script>
+    <script src="lib/errorTypes.js"></script>
+    <script src="lib/Enumeration.js"></script>
     <script src="src/c/initialize.js"></script>
     <script src="src/m/Book.js"></script>
     <script src="src/v/retrieveAndListAllBooks.js"></script>
+    <script src="src/c/retrieveAndListAllBooks.js"></script>
     <script>
       window.addEventListener(
         "load",
-        pl.v.retrieveAndListAllBooks.setupUserInterface
+        pl.c.retrieveAndListAllBooks.setupUserInterface
       );
     </script>
   </body>
